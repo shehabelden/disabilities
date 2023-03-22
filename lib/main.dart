@@ -2,7 +2,6 @@ import 'package:disabilities/Presentation/main%20screen/main_screen_badge.dart';
 import 'package:disabilities/app/utils/sounds.dart';
 import 'package:flutter/material.dart';
 
-import 'Presentation/Text to Voice.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Sounds().initSpeech() ;
@@ -15,10 +14,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      initialRoute: '/',
+      routes: {
+        '/voice': (context) => const MainScreen(),
+      },
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const TextToVoice(),
+      home: const MainScreen(),
     );
   }
 }
